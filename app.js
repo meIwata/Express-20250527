@@ -16,6 +16,12 @@ app.get('/hello', (req, res) => {
     res.send('Hello World!');
 });
 
+// 用get 在 /json 路由
+// 返回一個 JSON 範例物件
+app.get('/json', (req, res) => {
+    res.json({ message: 'Hello, JSON!' });
+});
+
 
 
 
