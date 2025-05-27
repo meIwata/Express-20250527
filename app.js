@@ -40,7 +40,7 @@ app.get('/image', (req, res) => {
     //__dirname：代表當前檔案所在的資料夾的絕對路徑
     // res.sendFile(path.join(__dirname, 'public', 'images', 'logo.svg'));
 
-    // 絕對路徑
+    // 絕對路徑，一般不寫絕對路徑因為換地方的時候連結就會壞掉
     // res.sendFile('/Users/Guest/Downloads/Express/public/images/logo.svg');
 });
 
