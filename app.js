@@ -17,11 +17,18 @@ app.get('/hello', (req, res) => {
 });
 
 // 用get 在 /json 路由
-// 返回一個 JSON 範例物件
+// 返回一個 JSON 範例物件 要多3筆屬性跟值
 app.get('/json', (req, res) => {
-    res.json({ message: 'Hello, JSON!' });
+    res.json({
+        message: 'Hello, JSON!',
+        status: 'success',
+        data: {
+            id: 1,
+            name: 'Sample Item',
+            type: 'Demo'
+        }
+    });
 });
-
 
 
 
