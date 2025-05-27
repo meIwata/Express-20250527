@@ -10,6 +10,7 @@ var app = express();
 
 
 // 基本路由
+
 // 用 get 在 /hello 路由
 // 返回 "Hello World!" 字符串
 app.get('/hello', (req, res) => {
@@ -30,6 +31,18 @@ app.get('/json', (req, res) => {
     });
 });
 
+// 用 get 在 /image 路由
+// 回傳 public/images/logo.svg 圖片檔案
+app.get('/image', (req, res) => {
+    // 相對路徑
+    res.sendFile(path.join(__dirname, './public/images/logo.svg'));
+
+    //__dirname：代表當前檔案所在的資料夾的絕對路徑
+    // res.sendFile(path.join(__dirname, 'public', 'images', 'logo.svg'));
+
+    // 絕對路徑
+    // res.sendFile('/Users/Guest/Downloads/Express/public/images/logo.svg');
+});
 
 
 app.use(logger('dev'));
