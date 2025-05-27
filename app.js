@@ -45,8 +45,42 @@ app.get('/image', (req, res) => {
 });
 
 
+/* Postman那邊：
+    http://localhost:3000/data
+    name , anna
+*/
+
+// 用 get 在 /data 路由
+// 接收query回傳get data
+// 資料的屬性name的值
+
+app.get('/data', (req, res) => {
+    const name = req.query.name || 'Guest'; // 如果沒有提供name，預設為'Guest'
+    res.send(`Get data: ${name}`);
+});
+
+
+app.use(express.json()); // 解析 JSON 請求體
+
+// 用 post 在 /data 路由
+// 接收 JSON 資料並回傳 get data
+// 資料的屬性 msg 的值
+app.post('/data', (req, res) => {
+    const msg = req.body.msg || 'No message provided'; // 如果沒有提供msg，預設為'No message provided'
+    console.log(msg);
+    res.send(`Post data: ${msg}`);
+});
+
+
+// app.post('/data', (req, res) => {
+//     const jsonData = req.body; // 取得 POST 請求的 JSON 資料
+//     console.log(jsonData);
+//     res.send('get data ' + jsonData.text);
+// })
+
+
 app.use(logger('dev'));
-app.use(express.json());
+
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
